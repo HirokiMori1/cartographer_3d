@@ -2,7 +2,7 @@
   <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
       type="cartographer_assets_writer" args="
           -configuration_directory $(find cartographer_3d)/config
-          -configuration_basename code save_pcd_assets_writer.lua
+          -configuration_basename save_pcd_assets_writer.lua
           -urdf_filename $(find cartographer_3d)/urdf/hokuyo3d.urdf
           -bag_filenames $(arg bag_filenames)
           -pose_graph_filename $(arg pose_graph_filename)"
