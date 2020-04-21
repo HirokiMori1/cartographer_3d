@@ -6,14 +6,17 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 
+  <include file="$(find hokuyo3d)/launch/hokuyo3d.launch" />
+
+
 
    <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_3d)/config
           -configuration_basename cartographer_3d.lua"
       output="screen">
-    <remap from="points2" to="/hokuyo3d/hokuyo_cloud2" />
-    <remap from="imu" to="/hokuyo3d/imu" />
+   <remap from="points2" to="/hokuyo3d/hokuyo_cloud2" />
+    <remap from="imu" to="/hokuyo3d/imu" /> 
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
